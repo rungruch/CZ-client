@@ -1,0 +1,27 @@
+.Account-Container {
+    width: 85%;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+.Account-Container h1{
+    margin :0;
+}
+.Account-line {
+    content: '';
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #B4A30A;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.account-nav .nav-container .nav-elements  ul {
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+

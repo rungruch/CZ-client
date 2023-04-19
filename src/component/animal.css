@@ -1,0 +1,449 @@
+.explore .animals {
+    display: flex;
+    flex-direction: column;
+    margin: 5rem 5% 0;
+}
+
+.explore .animals .top-contain{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.explore .animals .top-contain .scroll-button{
+    display: flex;
+    align-items: center;
+}
+
+.explore .animals .top-contain .scroll-button button{
+    display: flex;
+    border-radius: 50%;
+    width: 2.3rem;
+    height: 2.3rem;
+    margin : 0 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.explore .animals .top-contain .scroll-button button img{
+    width: 0.9rem;
+}
+
+.explore .animals .animals-list{
+    display: flex;
+    margin : 0 0 15rem;
+    height: 25rem;
+    overflow-x: auto;
+    
+    
+}
+
+.explore .animals .animals-list::-webkit-scrollbar-track
+{
+    display: none;
+    background-color: transparent;
+}
+
+.explore .animals .animals-list::-webkit-scrollbar
+{
+    display: none;
+    width: 20px;
+}
+
+.explore .animals .animals-list::-webkit-scrollbar-thumb
+{
+  display: none;
+  background-color: transparent;
+  border-radius: 20px;
+  border: 5px solid transparent;
+  background-clip: content-box;
+}
+
+.explore .animals .animals-list .card-unselected{
+    
+    display:flex;
+    flex-direction: column;
+    margin: 0 5rem;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+}
+
+
+
+.explore .animals .animals-list .card-selected{
+    
+    display:flex;
+    flex-direction: column;
+    margin: 0 5rem;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.explore .animals .animals-list .card-selected .img-container{
+    border-radius: 50%;
+    background-color: rgb(12,34,44);
+}
+
+.explore .animals .animals-list .card-unselected .img-container,
+.explore .animals .animals-list .card-selected .img-container{
+    width: 12rem;
+    height: 12rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.explore .animals .animals-list .card-unselected h1{
+
+    display: none;
+
+}
+
+.explore .animals .animals-list .card-unselected h1 , 
+.explore .animals .animals-list .card-selected h1{
+    position: absolute;
+    top : 18rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+.explore .animals .animals-list .card-unselected .img-container img,
+.explore .animals .animals-list .card-selected .img-container img{
+
+    width: 20rem;
+    
+
+}
+
+.explore .animals .animals-info {
+    display:flex;
+    flex-direction: column;
+    min-height: 22rem;
+    position: relative;
+    
+
+}
+
+
+.explore .animals .animals-info img{
+
+    top: -6rem;
+    position: absolute;
+    z-index: 1;
+    width: 35rem;
+    max-height: 20rem;
+    left: 2rem;
+    
+}
+.explore .animals .animals-info .detail{ 
+
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #2f373a;
+    min-height: 50rem;
+    margin-bottom: 90px;
+    border-radius: 0.5rem;
+
+}
+.explore .animals .animals-info .detail h1{ 
+    
+    margin-top: 5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    
+}
+
+.explore .animals .animals-info .detail h2{ 
+    text-align:left;
+    padding: 5rem;
+    font-weight:lighter;
+    color: rgb(170,171,172);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+@media (max-width:1780px) {
+    /* .explore .animals .animals-info img{
+        width: 30rem;
+        top: -5rem;
+    } */
+    .explore .animals .animals-info .detail h1{
+        margin-bottom: 3rem;
+    }
+    
+}
+
+@media (max-width: 1600px){
+    .explore .animals .animals-info img{
+        width: 30rem;
+        left: -2rem;
+        top: -4rem;
+    }
+    .explore .animals .animals-info .detail h1{
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width : 1500px)
+{
+    .explore .animals .animals-list .card-unselected .img-container,
+    .explore .animals .animals-list .card-selected .img-container{
+
+        width: 9rem;
+        height: 9rem;
+
+    }
+    .explore .animals .animals-list .card-unselected .img-container img,
+    .explore .animals .animals-list .card-selected .img-container img{
+        
+        width: 15rem;
+
+    }
+    .explore .animals .animals-list .card-unselected h1 , 
+    .explore .animals .animals-list .card-selected h1{
+        font-size: 1.5rem;
+        top : 14rem;
+    }
+    .explore .animals .animals-list{
+        margin : 0 0 10rem;
+        height: 21rem;  
+        
+    }   
+    .explore .animals .animals-list .card-unselected, 
+    .explore .animals .animals-list .card-selected 
+    {
+        margin: 0 3rem;
+    }
+    .explore .animals .animals-info .detail {
+
+        min-height: 40rem;
+        
+    }
+}
+
+@media (max-width: 1365px){
+    .explore .animals .animals-info img{
+        top: -3rem;
+        width: 23rem;
+        max-height: 15rem;
+    }
+    .explore .animals .animals-info .detail h2{
+        padding: 1.5rem 5rem;
+    }
+    /* .explore .animals .animals-info .detail h1{
+        margin-top: 3rem;
+        margin-bottom: 0.5rem;
+    }
+    .explore .animals .animals-info .detail h2{
+        padding-top: 3rem;
+    } */
+    
+}
+
+@media (max-width: 1180px) {
+    
+    .explore .animals .animals-info .detail h1{
+        font-size: 1.7rem;
+    }
+    .explore .animals .animals-info .detail h2{
+        font-size: 1.2rem;
+        padding: 3rem 5rem;
+    }
+     /* .explore .animals .animals-info .detail h1{
+        margin-top: 3rem;
+        margin-bottom: 0.5rem;
+    }
+    .explore .animals .animals-info .detail h2{
+        padding-top: 3rem;
+    } */
+    
+    
+}
+
+@media (max-width:1080px)
+{
+    .explore .animals .animals-list .card-unselected h1 , 
+    .explore .animals .animals-list .card-selected h1{
+        top : 15rem;
+    }
+    .explore .animals .animals-info img{
+        width: 20rem;
+        max-height: 12rem;
+        top:-2rem
+    }
+    .explore .animals .animals-info .detail h1{
+        margin-top: 3rem;
+        margin-bottom: 0.5rem;
+    }
+    .explore .animals .animals-info .detail h2{
+        padding-top: 3rem;
+    }
+}
+
+@media (max-width: 1030px)
+{
+    .explore .animals .animals-list .card-unselected .img-container,
+    .explore .animals .animals-list .card-selected .img-container{
+
+        width: 7rem;
+        height: 7rem;
+
+    }
+    .explore .animals .animals-list .card-unselected .img-container img,
+    .explore .animals .animals-list .card-selected .img-container img{
+        
+        width: 11rem;
+
+    }
+    .explore .animals .animals-list .card-unselected h1 , 
+    .explore .animals .animals-list .card-selected h1{
+        font-size: 1.2rem;
+        top : 10.5rem;
+    }
+    .explore .animals .animals-list .card-unselected, 
+    .explore .animals .animals-list .card-selected 
+    {
+        margin: 0 3rem;
+        height: 15rem;
+    }
+    .explore .animals .animals-list{
+        margin : 0 0 5rem;
+        height: 17rem;  
+        
+    } 
+    .explore .animals .animals-info img{
+        top: -2rem;
+        width: 19rem;
+        max-height: 12rem;
+    }
+    .explore .animals .animals-info .detail {
+
+        min-height: 30rem;
+        
+    }
+}
+
+@media (max-width:920px)
+{
+    .explore .animals .animals-info img{
+        max-height: 10rem;
+        width: 15rem;
+        top: -1rem;
+    }
+    .explore .animals .animals-info .detail h1{
+        font-size: 1.1rem;
+    }
+    .explore .animals .animals-info .detail h2 {
+        font-size: 1rem;
+        padding: 3rem 2rem;
+    }
+
+}
+
+@media(max-width:645px)
+{
+    .explore .animals .animals-info img{
+        width: 12rem;
+        top: -1rem;
+        max-height: 8rem;
+    }
+    .explore .animals .animals-info .detail h1{
+        font-size: 0.8rem;
+    }
+    .explore .animals .animals-info .detail h2{
+        font-size: 0.8rem;
+        padding: 1.5rem 2rem;
+    }
+    .explore .animals .animals-list .card-unselected h1 , 
+    .explore .animals .animals-list .card-selected h1{
+        font-size: 1rem;
+    }
+    .explore .animals .animals-list{
+        margin: 0 0 3rem;
+    }
+    .explore .animals .animals-info .detail {
+
+        min-height: 20rem;
+        
+    }
+    
+    
+}
+@media(max-width:515px)
+{
+    .explore .animals .animals-info img{
+        width: 8rem;
+        top: 0rem;
+        left: -1rem;
+    }
+    .explore .animals .animals-info .detail h1{
+        font-size: 0.8rem;
+        margin-top: 2rem;
+    }
+    .explore .animals .animals-info .detail h2{
+        font-size: 0.8rem;
+        padding: 1.5rem 2rem;
+    }
+    .explore .animals .animals-list .card-unselected .img-container,
+    .explore .animals .animals-list .card-selected .img-container{
+
+        width: 5rem;
+        height: 5rem;
+
+    }
+    .explore .animals .animals-list .card-unselected .img-container img,
+    .explore .animals .animals-list .card-selected .img-container img{
+        
+        width: 9rem;
+
+    }
+    .explore .animals .animals-list .card-unselected, 
+    .explore .animals .animals-list .card-selected 
+    {
+        margin: 0 2rem;
+        height: 12rem;
+    }
+    .explore .animals .animals-list .card-unselected h1 , 
+    .explore .animals .animals-list .card-selected h1{
+        font-size: 0.9;
+        top: 8rem;
+    }
+    .explore .animals .animals-list {
+        margin: 0 0 2rem;
+        height: 14rem;
+    }
+}
+
+@media (max-width:390px){
+    .explore .animals .animals-info img{
+        width: 6rem;
+        left: 0;
+        top: 0;
+        max-height: 4rem;
+        
+    }
+    .explore .animals .animals-info .detail h1{
+        margin-top: 1rem;
+        
+    }
+    .explore .animals .animals-info .detail h2{
+        
+        padding: 1rem 2rem;
+    }
+}
+@media(max-width:360px)
+{
+    .explore .animals .animals-info img{
+       display: none; 
+    }
+}

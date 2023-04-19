@@ -1,0 +1,218 @@
+.Buy-Container {
+    width: 100%;
+    margin: 2rem;
+    display: flex;
+    flex-direction: row;
+
+}
+.Buy-ContainerMain{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 2rem 1rem 2rem;
+    width: 100%;
+    
+}
+.Buy-ContainerMain p {
+    margin: 0 0 0 0;
+}
+.Buy-ContainerMain h2 {
+    margin-bottom: 0;
+}
+.Buy-ContainerBread{
+    background-color: white;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2em 2em 1em 2em;
+    border-radius: 5px;
+    align-items: center;
+}
+.Buy-ContainerBread h4 {
+    margin:0 0 1rem 0;
+}
+.Buy-Container h1{
+    margin :0;
+}
+.Buy-line {
+    content: '';
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #B4A30A;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.Buy-ticket-line {
+    content: '';
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #6B6B6B;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.BuyContent{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+}
+.BuyContentMain{
+    width: 100%;
+    background-color: white;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2em 2em 1em 2em;
+    border-radius: 5px;
+    align-items: flex-start;
+}
+
+.datePicker {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #fff;
+    width: 100%;
+}
+
+.dateSummary button{
+    background-color: #B4A30A;
+    color: white;
+    padding: 1rem;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.Buy-ticket-Option{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   width: 100%;
+   align-items: center;
+}
+
+.buybtn {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    background-color: #B4A30A;
+    color: white;
+    padding: 1rem;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.buybtnblock {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    background-color: #b5b5b5;
+    color: white;
+    padding: 1rem;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.mini-datepicker-element{
+    display: none;
+}
+
+.TotalPrice{
+    font-weight: 600;
+}
+
+.outOfticket {
+    color: rgb(148, 0, 0);
+    font-weight: 600;
+    font-size: 0.7rem;
+}
+@media (max-width: 1000px) {
+    .datePicker {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 900px) {
+    .Buy-ContainerBread{
+        padding: 2em 1em 1em 1em;
+    }
+}
+@media (max-width: 750px) {
+    .BuyContent{
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+}
+
+.BuyContentMain{
+    width: auto;
+    
+}
+
+
+.dateSummary{
+    padding :2em 2em 3em 2em;
+}
+.datepicker-element{
+    display: none;
+    padding :2em 2em 1em 2em;
+}
+
+.buy-container-bread ul{
+    flex-direction: row !important;
+    column-gap: 1rem;
+}
+
+.buy-container-bread li{
+    min-width: auto !important;
+}
+
+.buy-container-bread li .step-number{
+    margin-right: 0 !important;
+}
+
+.mini-datepicker-element{
+    display: block;
+    padding :2em 2em 1em 2em;
+}
+}
+
+@media (max-width: 500px) {
+    .Buy-ContainerMain h1{
+        font-size: 1.7rem;
+    }
+    .Buy-ContainerMain h2{
+        font-size: 1.3rem;
+    }
+.Buy-ticket-Option{
+    flex-direction: column;
+    row-gap: 1rem;
+}
+.Buy-ticket-Option h3{
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 410px) {
+.Buy-ContainerMain{
+    margin: 0;
+}
+
+.Buy-ContainerMain h1{
+    padding-left: 1em;
+    font-size: 1.5rem;
+}
+.Buy-ContainerMain h2{
+    font-size: 1.1rem;
+}
+
+}
+
+
+}

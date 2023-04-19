@@ -1,0 +1,73 @@
+   .breadDetail {
+    padding: 0 !important;
+   }
+   .breadDetail .short-select-choice{
+    border: 0 !important;
+    padding: 0 !important;
+    font-size: 0.8rem;
+    left: 0 !important;
+    transform: translateX(0%) !important;
+  }
+   .buy-container-bread ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .buy-container-bread li {
+      background-color: transparent;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      text-align: left;
+      position: relative;
+      min-width: 150px;
+    }
+  
+    .buy-container-bread li .step-number {
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+    
+      color: #242424;
+      border-radius: 50%;
+      margin-right: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 25px;
+    }
+  
+    .buy-container-bread li.active {
+      background-color: #B4A30A;
+      color: #fff;
+    }
+  
+    .buy-container-bread li.completed {
+      background-color: #eee;
+    }
+  
+    .buy-container-bread .short-select-choice {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -25px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+  
+  
+    
+
+ .stepdisc{
+  font-size: 0.8rem;
+ }
+
+ @media (max-width: 750) {
+  .stepdisc{
+    font-size: 0.6rem;
+   }
+ }
