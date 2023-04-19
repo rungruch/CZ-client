@@ -25,7 +25,7 @@ import MyTicket, { TicketLoader } from './page/MyTicket'
 import PersonalInfo from './page/PersonalInfo'
 import ChangePassword from './page/ChangePassword'
 import PurchaseHistory from './page/PurchaseHistory'
-import BuyLayout from './layout/BuyLayout'
+import BuyLayout from './page/Buy'
 
 
 
