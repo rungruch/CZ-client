@@ -70,6 +70,9 @@
     align-items: flex-start;
     height: fit-content;
 }
+.BuyContentMain h6{
+margin: -1rem 0 1em 0;
+}
 
 .datePicker {
     display: flex;

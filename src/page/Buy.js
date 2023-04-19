@@ -43,18 +43,31 @@ const AquariumTicketPurchase = () => {
   async function handleCheckout() {
     const genId = () => Math.random().toString(36).substring(2, 9)
 
-   let transaction = { 
-       Transactionid: genId(),
-       id: auth.user?.id,
-       Ticketid: "Individual",
-       quantity: Individual,
-       TotalPrice:(Individual*IndividualPrice),
-       VisitDate: moment(selectedDate.toString()).format("YY-MM-DD"),
-       Timestamp: moment(),
+    if(Individual >0){
+
+        let transaction = { 
+            Transactionid: genId(),
+            id: auth.user?.id,
+            Ticketid: "Individual",
+            quantity: Individual,
+            TotalPrice:(Individual*IndividualPrice),
+            VisitDate: moment(selectedDate.toString()).format("YY-MM-DD"),
+            Timestamp: moment(),
+         }
+         await createTransaction(transaction)
     }
-    await createTransaction(transaction)
-
-
+    if(Family >0){
+        let transaction = { 
+            Transactionid: genId(),
+            id: auth.user?.id,
+            Ticketid: "Family",
+            quantity: Family,
+            TotalPrice:(Family*FamilyPrice),
+            VisitDate: moment(selectedDate.toString()).format("YY-MM-DD"),
+            Timestamp: moment(),
+         }
+         await createTransaction(transaction)
+    }
   };
 
 
@@ -95,6 +108,10 @@ const AquariumTicketPurchase = () => {
                 <p className='TotalPrice'>{(FamilyPrice * Family) +" THB"}</p>
                 </div>
                 <div className="Buy-ticket-line" />
+                <div className="Buy-ticket-Option">
+                <h2>Total</h2>
+                <h2 >{((FamilyPrice * Family)+(IndividualPrice*Individual)) +" THB"}</h2>
+                </div>
                 <button className='buybtn' onClick={handleCheckout}>Checkout</button>
               </div>
             )}

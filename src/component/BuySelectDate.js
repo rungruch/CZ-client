@@ -7,7 +7,6 @@ import moment from 'moment';
 const BuySelectDate = ({ selectedDate, setSelectedDate,intensive,setIntensive,setStep,step }) => {
 
     const handleDateSelection = (event) => {
-
         let formattedDate = moment(event.toString()).format('YYYY-MM-DD');
         // console.log(formattedDate);
         setSelectedDate(event);
@@ -17,7 +16,8 @@ const BuySelectDate = ({ selectedDate, setSelectedDate,intensive,setIntensive,se
     }else{
         setIntensive('Normal');
     }
-  };    
+  };  
+    
     return (
        <>
             <div className='BuyContentMain'>
