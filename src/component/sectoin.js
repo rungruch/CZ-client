@@ -28,7 +28,10 @@ const Section = ({zones , index ,currentZone})=>{
 
 
     useEffect(()=>{
-        if(section.length>0){            
+        if(section.length>0){      
+            console.log(section); 
+            console.log(section[0]);  
+            console.log(section[0].Section[0]);        
             setSectionZones(section[0].Section);
             setCurrentSection(section[0].Section[0])
         }

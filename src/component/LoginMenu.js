@@ -30,7 +30,7 @@ export default function LoginMenu({showNavbar}) {
 					 <NavLink to="/account/changepassword">Change Password</NavLink>
 					 <NavLink to="/account/purchasehistory">Purchase History</NavLink>
 					 </div> */}
-					 <NavLink to={"/account/myticket/"+auth.user?.id} className="dropdown-item">
+					 <NavLink to={"/account/myticket/"} className="dropdown-item">
 					   My Ticket
 					 </NavLink>
 					 <div

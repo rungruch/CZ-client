@@ -24,7 +24,7 @@ const AquariumTicketPurchase = () => {
     const navigate = useNavigate();
     async function createTransaction(newTransaction) {
       try {
-        let response = await fetch('/api/transactions/', {
+         await fetch('/api/transactions/', {
           method: 'POST',
           body: JSON.stringify(newTransaction),
           headers: new Headers({ 'Content-Type': 'application/json' }),
@@ -34,7 +34,7 @@ const AquariumTicketPurchase = () => {
           }
           return res.json()
         })
-        navigate('/account/myticket/'+auth.user?.id);
+        navigate('/account/myticket');
       } catch (error) {
         console.error('Error:', error)
       }
@@ -44,27 +44,24 @@ const AquariumTicketPurchase = () => {
     const genId = () => Math.random().toString(36).substring(2, 9)
 
     if(Individual >0){
-
         let transaction = { 
             Transactionid: genId(),
-            id: auth.user?.id,
-            Ticketid: "Individual",
+            email: auth.user?.email,
+            TicketType: "Individual",
             quantity: Individual,
             TotalPrice:(Individual*IndividualPrice),
-            VisitDate: moment(selectedDate.toString()).format("YY-MM-DD"),
-            Timestamp: moment(),
+            VisitDate: moment(selectedDate.toString()).format("YYYY-MM-DD"),
          }
          await createTransaction(transaction)
     }
     if(Family >0){
         let transaction = { 
             Transactionid: genId(),
-            id: auth.user?.id,
-            Ticketid: "Family",
+            email: auth.user?.email,
+            TicketType: "Family",
             quantity: Family,
             TotalPrice:(Family*FamilyPrice),
-            VisitDate: moment(selectedDate.toString()).format("YY-MM-DD"),
-            Timestamp: moment(),
+            VisitDate: moment(selectedDate.toString()).format("YYYY-MM-DD"),
          }
          await createTransaction(transaction)
     }

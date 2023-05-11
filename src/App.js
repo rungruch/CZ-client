@@ -21,7 +21,7 @@ import LoginPopup from './component/LoginPopup'
 
 import RequireAuth from './component/RequireAuth'
 import AccountLayout from './layout/AccountLayout'
-import MyTicket, { TicketLoader } from './page/MyTicket'
+import MyTicket from './page/MyTicket'
 import PersonalInfo from './page/PersonalInfo'
 import ChangePassword from './page/ChangePassword'
 import PurchaseHistory from './page/PurchaseHistory'
@@ -47,7 +47,7 @@ const router = createBrowserRouter(
 						<Route path="personalinfo" element={<PersonalInfo />} />
 						<Route path="changepassword" element={<ChangePassword />} />
 						<Route path="purchasehistory" element={<PurchaseHistory />} />
-						<Route path="myticket/:id" loader={TicketLoader}  element={<MyTicket />} />
+						<Route path="myticket"   element={<MyTicket />} />
 						
 				</Route>
 				<Route path="buy" element={<BuyLayout/>} />
