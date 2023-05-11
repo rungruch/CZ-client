@@ -1,4 +1,4 @@
-import { NavLink, redirect } from 'react-router-dom'
+import { NavLink, redirect} from 'react-router-dom'
 import { useAuth } from '../utils/AuthProvider'
 import { useState } from 'react';
 
@@ -7,6 +7,10 @@ export default function LoginMenu({showNavbar}) {
 	const [showDropdown, setShowDropdown] = useState(false);
 	function handleDropdownToggle() {
 		setShowDropdown((prevState) => !prevState);
+	  }
+
+	  function handleNavLinkClick() {
+		setShowDropdown(false);
 	  }
 	return (
 		<>
@@ -22,7 +26,7 @@ export default function LoginMenu({showNavbar}) {
 				 {showDropdown && (
 				   <div className="dropdown-menu">
 					
-					 <NavLink to="/account" className="dropdown-item">
+					 <NavLink to="/account" className="dropdown-item"  onClick={handleNavLinkClick}>
 					   My Account
 					 </NavLink>
 					 {/* <div className={`acc-element  ${showNavbar && "active"}`}>
@@ -30,7 +34,7 @@ export default function LoginMenu({showNavbar}) {
 					 <NavLink to="/account/changepassword">Change Password</NavLink>
 					 <NavLink to="/account/purchasehistory">Purchase History</NavLink>
 					 </div> */}
-					 <NavLink to={"/account/myticket/"} className="dropdown-item">
+					 <NavLink to={"/account/myticket/"} className="dropdown-item"  onClick={handleNavLinkClick}>
 					   My Ticket
 					 </NavLink>
 					 <div

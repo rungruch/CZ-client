@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { ReactComponent as Hamburger } from "../assets/icons/burger.svg";
 //import { ReactComponent as Brand } from '../../assets/icons/logo.svg'
 import "./navbar.css";
@@ -52,7 +52,6 @@ const Navbar = () => {
 
   // auth
   const auth = useAuth();
-  const navigate = useNavigate();
 
   return (
     <>
