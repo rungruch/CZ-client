@@ -29,7 +29,7 @@ Modal.setAppElement("#root");
 const RequireAuth = () => {
   const auth = useAuth();
   const location = useLocation();
-  console.log("*********require auth", auth.user);
+  //console.log("*********require auth", auth.user);
 
   const [isLogin, setIsLogin] = useState(true);
   const [modalIsOpen, setIsOpen] = useState(true);
