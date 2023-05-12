@@ -31,7 +31,12 @@ const TicketPage = () => {
     setIsModalOpen(true);
   };
 
-  const list = products.map((e) => (
+  const today = new Date().toISOString().split('T')[0];
+
+  const list = products
+  .filter(e => e.VisitDate >= today)
+  .sort((a, b) => a.VisitDate.localeCompare(b.VisitDate)) // sort by VisitDate in ascending order
+  .map((e) => (
     <div
       className="list-content"
       key={e.Transactionid}
@@ -50,10 +55,11 @@ const TicketPage = () => {
     </div>
   ));
 
+
   return (
     <>
       {products.length ? (
-        <div className="list-item">{list}</div>
+        <div className="--item">{list}</div>
       ) : (
         "No Ticket available"
       )}

@@ -1,3 +1,7 @@
+.list-item{
+  margin-bottom: 5rem;
+}
+
 .list-contentPH {
   display: block;
   align-items: center;
@@ -5,7 +9,7 @@
   justify-content: space-between;
   border: 2px solid;
   border-radius: 10px;
-  padding: 1.5rem;
+  padding: 1.2rem;
   background-color: #fff;
   margin-top: 2rem;
 }
@@ -41,6 +45,31 @@
   display: flex;
   justify-content: flex-end;
 }
+.Summarayinfo h3{
+  margin :0;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.2rem;
+  padding-left: 0;
+}
+
+.pagination li {
+  list-style: none;
+  margin: 0 0.5rem;
+  cursor: pointer;
+}
+
+.pagination li.active {
+  font-weight: bold;
+  text-decoration: underline;
+  background-color: #f0f0f0 !important;
+  border-radius: 0.5rem;
+}
+
+
 
 @media (max-width: 750px) {
   .list-content {
