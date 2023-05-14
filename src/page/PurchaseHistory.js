@@ -11,7 +11,7 @@ const PurchaseHistoryPage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch("/api/transactions/" + auth.user?.email);
+        const res = await fetch("/api/transactions/" + auth.user?.id);
         if (!res.ok) {
           throw Error("Could not fetch the products");
         }
@@ -23,7 +23,7 @@ const PurchaseHistoryPage = () => {
     };
 
     fetchProducts();
-  }, [auth.user?.email]);
+  }, [auth.user?.id]);
 
   const renderProducts = () => {
     const indexOfLastProduct = currentPage * productsPerPage;

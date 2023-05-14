@@ -31,7 +31,7 @@ const LoginPopup = ({ closeModal, setIsLogin }) => {
         const accessToken = data?.accessToken;
         const roles = data?.data.user.roles;
         const name = data?.data.user.name;
-        const id = data?.data.user.id;
+        const id = data?.data.user._id;
         setEmail("");
         setPassword("");
         const user = { id, email, roles, accessToken, name };

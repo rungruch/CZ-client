@@ -43,7 +43,7 @@ const Navbar = () => {
   // Modal
   const [isLogin, setIsLogin] = useState(true);
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
   function openModal() {
     setIsOpen(true);
   }

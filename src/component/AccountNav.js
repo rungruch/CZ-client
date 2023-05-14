@@ -15,7 +15,7 @@ const Navbar = () => {
         <div className="nav-elements">
           <ul>
             <li>
-              <NavLink to="/account/personalinfo">Personal Info</NavLink>
+              <NavLink to="/account/personalinfo">Edit Profile</NavLink>
             </li>
             <li>
               <NavLink to="/account/changepassword">Change Password</NavLink>

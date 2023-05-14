@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import "../component/Ticket.css";
 import moment from 'moment';
 import { useEffect, useState } from "react";

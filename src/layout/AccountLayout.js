@@ -1,6 +1,7 @@
 import '../component/account.css'
 import { Outlet } from "react-router-dom";
 import Accountbar from '../component/AccountNav'
+
 const Account = () => {
     return(
         <>
