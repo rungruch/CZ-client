@@ -7,7 +7,7 @@ import { useLoaderData } from "react-router-dom";
 const dataContext = React.createContext();
 const About = () =>{
     const data = useLoaderData()
-    console.log(data)
+    // console.log(data)
     return ( 
         <dataContext.Provider value={data}>
             <>

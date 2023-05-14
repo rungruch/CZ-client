@@ -124,7 +124,7 @@ const Navbar = () => {
                 auth.user.roles=="Admin"&&
                 (
                 <li>
-                  <NavLink to="/addticket">Mangage Ticket</NavLink>
+                  <NavLink to="/addticket">Manage Ticket</NavLink>
                 </li>
                 )
               }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 
 const BuySelectTicket = ({ selectedDate, setSelectedDate,intensive,setIntensive,setStep,step,selectedTickets,setTotalPrice,
-    Individual,setIndividual, Family,setFamily,setIndividualPrice,setFamilyPrice
+    Individual,setIndividual,setIndividualPrice,setFamilyPrice, Family,setFamily,selectIndTicket, selectFamTicket,setselectIndTicket,setselectFamTicket
 }) => {
     
     // const [IndividualQuan, setIndividualQuan] = useState(0)
@@ -41,16 +41,15 @@ const BuySelectTicket = ({ selectedDate, setSelectedDate,intensive,setIntensive,
         }
       };
 
-      const [selectIndTicket, setselectIndTicket] = useState([]);
-     const [selectFamTicket, setselectFamTicket] = useState([]);
+
 
       useEffect(() => {
         const fetchData = async () => {
-          // let formattedDate = moment(selectedDate.toString()).format('YYYY-MM-DD');
-          // const Inddata = await TicketLoader("Individual",formattedDate);
-          // const Famdata = await TicketLoader("Family",formattedDate);
-          const Inddata = await TicketLoader("Individual","2023-04-23");
-          const Famdata = await TicketLoader("Family","2023-04-23");
+          let formattedDate = moment(selectedDate.toString()).format('YYYY-MM-DD');
+          const Inddata = await TicketLoader("Individual",formattedDate);
+          const Famdata = await TicketLoader("Family",formattedDate);
+          // const Inddata = await TicketLoader("Individual","2023-04-23");
+          // const Famdata = await TicketLoader("Family","2023-04-23");
           
           setselectIndTicket(Inddata[0]);
           setselectFamTicket(Famdata[0]);
@@ -105,7 +104,7 @@ const BuySelectTicket = ({ selectedDate, setSelectedDate,intensive,setIntensive,
                       selectFamTicket.Price+" THB"
                 ) : (null)}
                   </p>
-                  <p className='TotalPrice'>{selectFamTicket.Remaining > 0 ? (selectFamTicket.Price * Individual +" THB")
+                  <p className='TotalPrice'>{selectFamTicket.Remaining > 0 ? (selectFamTicket.Price * Family +" THB")
                 : (null)
               }</p>
                 </div>
