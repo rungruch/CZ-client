@@ -122,7 +122,7 @@ const AquariumTicketPurchase = () => {
           <div className="Buy-line" />
           <div className='BuyContent'>
             {step === 1 && (
-            <BuySelectDate selectedDate={selectedDate} setSelectedDate={setSelectedDate}  intensive={intensive} setIntensive={setIntensive} step={step} setStep={setStep}/>
+            <BuySelectDate selectedDate={selectedDate} setSelectedDate={setSelectedDate}  intensive={intensive} setIntensive={setIntensive} step={step} setStep={setStep} setselectIndTicket={setselectIndTicket} setselectFamTicket={setselectFamTicket}/>
             )}
             {step === 2 && (
              <BuySelectTicket BuySelectDate selectedDate={selectedDate} setSelectedDate={setSelectedDate}  intensive={intensive} setIntensive={setIntensive} step={step} setStep={setStep} 
