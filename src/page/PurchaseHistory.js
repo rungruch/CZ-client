@@ -1,4 +1,4 @@
-import "./MyTicket.css";
+import "../component/MyTicket.css";
 import { useAuth } from "../utils/AuthProvider";
 import { useEffect, useState } from "react";
 

@@ -13,8 +13,6 @@ import Home from './page/HomePage'
 import Ticket from './page/Ticket'
 import Explore,{zonesectionloader} from './page/Explore'
 import AnimalExhibits,{zoneanimalLoader} from './page/Animal-Exhibits'
-import News from './page/News'
-import Support from './page/Support'
 //import ErrorPage from './component/ErrorPage'
 import NotFound from './component/NotFound'
 import LoginPopup from './component/LoginPopup'
@@ -40,8 +38,6 @@ const router = createBrowserRouter(
 			<Route path="ticket" element={<Ticket />} />
 			<Route path="explore" loader={zonesectionloader} element={<Explore />} />
 			<Route path="animal-exhibits" loader={zoneanimalLoader} element={<AnimalExhibits />} />
-			<Route path="news" element={<News />} />
-			<Route path="support" element={<Support />} />
      		<Route path='login' element={<LoginPopup />} />
 			 <Route element={<RequireAuth allowedRoles={["User","Admin"]}/>}>
 				<Route path="account" element={<AccountLayout />} >
