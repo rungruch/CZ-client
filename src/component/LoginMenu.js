@@ -37,6 +37,18 @@ export default function LoginMenu({showNavbar}) {
 					 <NavLink to={"/account/myticket/"} className="dropdown-item"  onClick={handleNavLinkClick}>
 					   My Ticket
 					 </NavLink>
+
+					 <div className='morenavmob'>
+					 <NavLink to={"/account/personalinfo/"} className="dropdown-item"  onClick={handleNavLinkClick}>
+					   Edit Profile
+					 </NavLink>
+					 <NavLink to={"/account/changepassword/"} className="dropdown-item"  onClick={handleNavLinkClick}>
+					   Change Password
+					 </NavLink>
+					 <NavLink to={"/account/purchasehistory/"} className="dropdown-item"  onClick={handleNavLinkClick}>
+					   Purchase History
+					 </NavLink>
+					 </div>
 					 <div
 					   className="dropdown-item"
 					   onClick={() => {

@@ -26,7 +26,7 @@ const LoginPopup = ({ closeModal, setIsLogin }) => {
       });
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
 
         const accessToken = data?.accessToken;
         const roles = data?.data.user.roles;

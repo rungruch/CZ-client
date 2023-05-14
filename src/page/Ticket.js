@@ -11,11 +11,9 @@ const Ticket = () => {
   const [selectFamTicket, setselectFamTicket] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      //let formattedDate = moment(selectedDate.toString()).format('YYYY-MM-DD');
-      // const Inddata = await TicketLoader("Individual",formattedDate);
-      // const Famdata = await TicketLoader("Family",formattedDate);
-      const Inddata = await TicketLoader("Individual","2023-04-23");
-      const Famdata = await TicketLoader("Family","2023-04-23");
+      let formattedDate = moment().format('YYYY-MM-DD');
+      const Inddata = await TicketLoader("Individual",formattedDate);
+      const Famdata = await TicketLoader("Family",formattedDate);
       
       setselectIndTicket(Inddata[0]);
       setselectFamTicket(Famdata[0]);

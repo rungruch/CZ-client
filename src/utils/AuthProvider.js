@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
 
   let signin = (newUser, callback) => {
     setUser(newUser);
-    console.log("sign in", newUser);
+    // console.log("sign in", newUser);
     sessionStorage.getItem("aToken", newUser);
     callback();
   };
