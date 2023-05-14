@@ -35,7 +35,7 @@ const Ticket = () => {
           <h2>Individual</h2>
             <div className="ticketprice">
             <h3>Adult</h3>
-            <h3>{selectIndTicket.Price}  THB</h3>
+            <h3>{selectIndTicket.Price ?? 400}  THB</h3>
             </div>
             <p>(Free if charge for child height under 90 cm.)</p>
             <p>(Child height between 91 - 140 cm. is considered to be charged as child rate)</p>
@@ -48,7 +48,7 @@ const Ticket = () => {
           <h2>Family</h2>
             <div className="ticketprice">
             <h3>2 Adults + 2 Children </h3>
-            <h3>{selectFamTicket.Price} THB</h3>
+            <h3>{selectFamTicket.Price ?? 1000} THB</h3>
             </div>
             <p>(Free if charge for child height under 90 cm.)</p>
             <p>(Child height between 91 - 140 cm. is considered to be charged as child rate)</p>
