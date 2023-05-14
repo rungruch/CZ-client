@@ -5,6 +5,8 @@ import { Form} from 'react-router-dom';
 
 const Account = () => {
     const [userdata, setuserdata] = useState([]);
+    const [showModal, setShowModal] = useState(false);
+    const [modalMessage, setModalMessage] = useState('');
     let auth = useAuth();
     useEffect(() => {
         const fetchData = async () => {
@@ -32,12 +34,17 @@ const Account = () => {
             body: JSON.stringify(data)
         });
         if (res.ok) {
-            alert('User data updated successfully!');
+            setModalMessage('User data updated successfully!');
+            setShowModal(true);
         } else {
-            alert('Error updating user data');
+            setModalMessage('Error updating user data');
+            setShowModal(true);
         }
     };
     
+    const closeModal = () => {
+        setShowModal(false);
+    };
     
     return(
         <>
@@ -60,6 +67,15 @@ const Account = () => {
 			<div>user data error</div>
 		  )}
 		</>
+
+        {showModal && (
+            <div className="modal">
+                <div className="modal-content">
+                    <span className="close" onClick={closeModal}>&times;</span>
+                    <p>{modalMessage}</p>
+                </div>
+            </div>
+        )}
   
         </>
     );
