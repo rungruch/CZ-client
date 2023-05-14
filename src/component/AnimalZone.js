@@ -1,35 +1,13 @@
-import { useState , useEffect , useRef } from "react";
+import { useState , useEffect , useRef, useContext } from "react";
 import AnimalCompo from "./AnimalCompo.js";
 import './explore.css'
+import { dataContext } from "../page/Animal-Exhibits.js";
 
 const AnimalExhibits= ()=>{
 
-    const [zones , setZones] = useState([]);
-    const [currentZone , setCurentZone] = useState({});
+    const [zones , setZones] = useState(useContext(dataContext));
+    const [currentZone , setCurentZone] = useState(zones[0]);
 
-    useEffect(()=>{
-
-        async function fetchdata ()
-        {
-            const zone = await zonesloader();
-            const animals = await animalsLoader();
-
-            const combine = zone.map(zone=>{
-                let match = animals.find(animal=> animal.zoneID===zone.id)
-                return match? Object.assign(zone,match):{...zone , Animals : []};
-            })
-
-            if (combine.length > 0)
-            {
-                console.log(combine)
-                setZones(combine);
-                setCurentZone(combine[0]);
-            }
-
-        }
-        fetchdata();
-
-    },[])
 
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
    
@@ -121,29 +99,3 @@ const AnimalExhibits= ()=>{
 }
 
 export default AnimalExhibits;
-
-const zonesloader = async ()=>{
-
-    const res = await fetch("/api/zones")
-    if(!res.ok){
-        throw Error("can't fetch zone");
-    }
-    else{
-        return res.json()
-    }
-
-} 
-
-const animalsLoader = async () => {
-
-    const res = await fetch("/api/animals");
-
-    if (!res.ok)
-    {
-        throw Error("can't fetch animals");
-    }
-    else{
-        return res.json()
-    }
-
-}

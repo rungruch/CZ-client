@@ -53,6 +53,7 @@ const Navbar = () => {
 
   // auth
   const auth = useAuth();
+  // const navigate = useNavigate();
 
   return (
     <>
@@ -81,7 +82,7 @@ const Navbar = () => {
                   // >
                   //   Sign Out
                   // </button>
-                  <LoginMenu />
+                  <LoginMenu/>
                 ) : (
                   <button className="loginbtn" onClick={openModal}>Login</button>
                 )}
@@ -119,6 +120,14 @@ const Navbar = () => {
               <li>
                 <NavLink to="/Animal-Exhibits">Animal & Exhibits</NavLink>
               </li>
+              {
+                auth.user.roles=="Admin"&&
+                (
+                <li>
+                  <NavLink to="/addticket">Mangage Ticket</NavLink>
+                </li>
+                )
+              }
               {/* <li>
                 <NavLink to="/News">News</NavLink>
               </li>

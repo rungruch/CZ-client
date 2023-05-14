@@ -1,0 +1,232 @@
+.addticket-container {
+    display:flex;
+    width: 100%;
+    margin: 2rem;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+.addticket-container h1{
+    font-size: 1.5rem;
+}
+
+.addticket-container .select-info{
+    display:flex;
+    width: 80%;
+    padding: 2rem 0;
+    justify-content: space-around;
+    background-color: white;
+    border-radius: 10px;
+    min-height: 30rem;
+    
+}
+.addticket-container .select-info .addticketoption{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:  flex-start;
+    
+    
+}
+
+.addticket-container .select-info .addticketoption h2{
+    font-size: 1rem;
+}
+
+.addticket-container .select-info .addticketoption .box{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 15rem;
+    border-top: 0.1rem solid black;
+    margin-top: 2rem;
+}
+.addticket-container .select-info .addticketoption .card-container
+{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.addticket-container .select-info .addticketoption .card-container .card
+{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.addticket-container .select-info .addticketoption .card-container .card input
+{
+    width: 2.5rem;
+}
+
+
+.addticketoption input::-webkit-outer-spin-button,
+.addticketoption input::-webkit-inner-spin-button, 
+.editticket-container .box input::-webkit-outer-spin-button,
+.editticket-container .box input::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.addticket-container .create-button{
+    background-color: #B4A30A;
+    color: white;
+    padding: 1rem;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 10rem;
+    margin-top: 2rem;
+}
+.addticket-container .select-info .show-info{
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+}
+.show-info h2{
+    font-size: 1.2rem;
+}
+
+.addticket-container .ticket-menu{
+    display:flex;
+    flex-direction: column;
+    background-color: white;
+    height: 34rem;
+    border-radius: 10px;
+    width: 15rem;
+    align-items: center;
+    margin-right: 2rem;
+}
+
+.addticket-container .ticket-menu .selected-button
+{
+    background-color: #B4A30A;
+    color: white;
+    padding: 1rem;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 10rem;
+    margin-top: 2rem;
+    
+}
+.addticket-container .ticket-menu .select-button
+{
+    background-color: white;
+    color: black;
+    padding: 1rem;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 10rem;
+    margin-top: 2rem;
+    
+}
+
+
+.nonti-popup{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+.nonti-popup h1{
+    font-size: 1.5rem;
+}
+.nonti-popup .button-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.nonti-popup .button-container button{
+    background-color: #B4A30A;
+    color: white;
+    padding: 1rem;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 10rem;
+    margin-top: 2rem;
+}
+
+.addticket-container .select-info .list-ticket{
+
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    
+
+}
+
+.addticket-container .select-info .list-ticket .ticket-card{
+
+    display:flex;
+    width: 100%;
+    justify-content: flex-start;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 4rem;
+
+}
+.addticket-container .select-info .list-ticket .ticket-card h3{
+
+    flex-basis: 12%;
+    margin:0 2.5rem;
+
+}
+.addticket-container .select-info .edit-showinfo-container {
+    display: flex;
+    flex-direction: column;
+    
+}
+.addticket-container .select-info .editticket-container{
+    display:flex;
+    flex-direction: column;
+    width: 15rem;
+    
+}
+.addticket-container .select-info .editticket-container .box{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.editticket-container .box input{
+    width: 2.5rem;
+}
+.editticket-container .button-container{
+    display:flex;
+    justify-content: space-between;
+}
+
+.select-info .editticket-container .button-container button{
+    background-color: #B4A30A;
+    color: white;
+    padding: 1rem;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 6rem;
+    margin-top: 5rem;
+}
+
+.addticket-container .select-info .list-ticket .ticket-card button{
+    background-color: #B4A30A;
+    color: white;
+    padding: 1rem;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 3rem;
+    flex-basis: 12%;
+    margin:0 1rem;
+}
