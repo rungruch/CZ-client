@@ -28,7 +28,7 @@ const News = () => {
       <div className='newslistDetails'>
         <h3>{e.eventName}</h3>
         <div className='newslistDetails-Body'>
-          <img src='/img/assets|main|location.png' alt='location'/>
+          <img src='https://cz-server-rungruch.azurewebsites.net/img/assets|main|location.png' alt='location'/>
         <p>{e.eventLocation}</p>
         </div>
         
@@ -55,7 +55,7 @@ const News = () => {
             <img className='news-img unselectable' src={currentNews.animalUrl} alt='animalImage'/>
             <div className='news-preview-headline'>
               <p>{currentNews.eventShortHeadlline}</p>
-              <img src='/img/assets|main|descriptionbg.jpg' width='600px' height='150px' alt='headlineBG' className='unselectable'/>
+              <img src='https://cz-server-rungruch.azurewebsites.net/img/assets|main|descriptionbg.jpg' width='600px' height='150px' alt='headlineBG' className='unselectable'/>
             </div>
           </div>
         </div>
@@ -68,7 +68,7 @@ export default News;
 
 export const newsLoader = async () => {
 	// const res = await getProducts();
-	const res = await fetch('/api/news')
+	const res = await fetch('https://cz-server-rungruch.azurewebsites.net/api/news')
 	if (!res.ok) {
 		throw Error('Could not fetch the products')
 	}

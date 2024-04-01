@@ -61,7 +61,7 @@ export default ManageTicket
 
 export const ticketmanageLoader = async ()=>{
 
-    const res = await fetch("/api/ticket")
+    const res = await fetch("https://cz-server-rungruch.azurewebsites.net/api/ticket")
     if (!res.ok)
     {
         throw Error("Cannot fect ticket")

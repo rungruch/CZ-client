@@ -26,7 +26,7 @@ const Account = () => {
             name: formData.get("name"),
             email: formData.get("email")
         };
-        const res = await fetch(`/api/user/${email}`, {
+        const res = await fetch(`https://cz-server-rungruch.azurewebsites.net/api/user/${email}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -84,7 +84,7 @@ export default Account;
 
 
 export const Userloader = async (email) => {
-	const res = await fetch('/api/user/' + email)
+	const res = await fetch('https://cz-server-rungruch.azurewebsites.net/api/user/' + email)
 	let user = await res.json()
 	if (!res.ok) {
 		throw Error(user.error)

@@ -71,7 +71,7 @@ export default HeroSection;
 
 export const heroLoader = async () => {
 	// const res = await getProducts();
-	const res = await fetch('/api/hero_slides')
+	const res = await fetch('https://cz-server-rungruch.azurewebsites.net/api/hero_slides')
 	if (!res.ok) {
 		throw Error('Could not fetch the products')
 	}

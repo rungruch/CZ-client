@@ -45,7 +45,7 @@ const ShowEditTicket = ({ticket , setTicket , setStage ,setTicketEdit})=>{
             Ticketid : id
         }
         try{
-        let respose = await fetch('/api/ticket/'+id,{
+        let respose = await fetch('https://cz-server-rungruch.azurewebsites.net/api/ticket/'+id,{
             method:"DELETE",
             body : JSON.stringify(ticketRemove),
             headers: new Headers({ 'Content-Type': 'application/json' })

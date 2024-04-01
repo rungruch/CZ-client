@@ -25,13 +25,13 @@ export {dataContext}
 export default Explore
 
 export const zonesectionloader = async() =>{
-    const zones = await fetch('/api/zones')
+    const zones = await fetch('https://cz-server-rungruch.azurewebsites.net/api/zones')
     if(!zones.ok)
     {
         throw Error("could not fetch the zones.")
     }
     const zonesData = await zones.json()
-    const section = await fetch ('/api/sections')
+    const section = await fetch ('https://cz-server-rungruch.azurewebsites.net/api/sections')
     if(!section.ok)
     {
         throw Error("coult not fetch the section")

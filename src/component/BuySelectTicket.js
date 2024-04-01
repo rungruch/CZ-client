@@ -119,7 +119,7 @@ const BuySelectTicket = ({ selectedDate, setSelectedDate,intensive,setIntensive,
 export default BuySelectTicket;
 
 export const TicketLoader = async (ticketType,TDate) => {
-	const res = await fetch('/api/ticket/' + ticketType+'/'+TDate)
+	const res = await fetch('https://cz-server-rungruch.azurewebsites.net/api/ticket/' + ticketType+'/'+TDate)
 	let ticket = await res.json()
 	if (!res.ok) {
 		throw Error(ticket.error)

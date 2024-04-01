@@ -35,7 +35,7 @@ let useFetchPrivate = () => {
   };
 
   const refreshToken = async (accessToken) => {
-    let response = await fetch("/auth/refresh", {
+    let response = await fetch("https://cz-server-rungruch.azurewebsites.net/auth/refresh", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

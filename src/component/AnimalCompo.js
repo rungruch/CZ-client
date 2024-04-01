@@ -88,12 +88,12 @@ const AnimalCompo = ({currentZone}) =>{
                     <button onClick={() => {
                             handleHorizantalScroll(elementRef.current, 25, 350, -20);
                             }}
-                            disabled={leftDisable}><img src="/img/assets|main|back-arrow.png" alt="" draggable="false" className="btnL"/></button>
+                            disabled={leftDisable}><img src="https://cz-server-rungruch.azurewebsites.net/img/assets|main|back-arrow.png" alt="" draggable="false" className="btnL"/></button>
           
                     <button onClick={() => {
                              handleHorizantalScroll(elementRef.current, 25, 350, 20);
                              }}
-                             disabled={rightDisable}><img src="/img/assets|main|forward-arrow.png" alt="" draggable="false" className="btnR" /></button>
+                             disabled={rightDisable}><img src="https://cz-server-rungruch.azurewebsites.net/img/assets|main|forward-arrow.png" alt="" draggable="false" className="btnR" /></button>
                     </div>
                 </div>
                 <div className="animals-list" ref={elementRef}>{list}</div>

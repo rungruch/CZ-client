@@ -28,7 +28,7 @@ const Ticket = () => {
       <h1>Admission Tickets</h1>
       <div className="ticket-content" id="Individual" onClick={handleClick}>
           <div className="ticketbox">
-          <img src='/img/assets|ticket|indiv.jpg' alt="exhibitonimg" className="unselectable ticketimg"/>
+          <img src='https://cz-server-rungruch.azurewebsites.net/img/assets|ticket|indiv.jpg' alt="exhibitonimg" className="unselectable ticketimg"/>
           <div className="ticketdetails">
           <h2>Individual</h2>
             <div className="ticketprice">
@@ -41,7 +41,7 @@ const Ticket = () => {
           </div>  
           </div>
           <div className="ticketbox" id="Family" onClick={handleClick}>
-          <img src='/img/assets|ticket|family.jpeg' alt="exhibitonimg" className="unselectable ticketimg"/>
+          <img src='https://cz-server-rungruch.azurewebsites.net/img/assets|ticket|family.jpeg' alt="exhibitonimg" className="unselectable ticketimg"/>
           <div className="ticketdetails">
           <h2>Family</h2>
             <div className="ticketprice">

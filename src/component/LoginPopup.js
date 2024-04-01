@@ -17,7 +17,7 @@ const LoginPopup = ({ closeModal, setIsLogin }) => {
     const body = { email, password };
 
     try {
-      const response = await fetch("/auth/login", {
+      const response = await fetch("https://cz-server-rungruch.azurewebsites.net/auth/login", {
         method: "POST",
         headers: new Headers({
           "Content-Type": "application/json",

@@ -9,14 +9,14 @@ import Footer from "../component/Footer";
         {
           id:'1',
           exhibitonheadline:'Sea Othher Habitat',
-          exhibitonImageUrl:'/img/assets|main|OthereEX.jpg',
-          exhibitonUrl:'/img/assets|main|OthereEX.png',
+          exhibitonImageUrl:'https://cz-server-rungruch.azurewebsites.net/img/assets|main|OthereEX.jpg',
+          exhibitonUrl:'https://cz-server-rungruch.azurewebsites.net/img/assets|main|OthereEX.png',
         },
         {
             id:'2',
             exhibitonheadline:'Shark Lagoon',
-            exhibitonImageUrl:'/img/assets|main|SharkEX.jpg',
-            exhibitonUrl:'/img/assets|main|SharkEX.png',
+            exhibitonImageUrl:'https://cz-server-rungruch.azurewebsites.net/img/assets|main|SharkEX.jpg',
+            exhibitonUrl:'https://cz-server-rungruch.azurewebsites.net/img/assets|main|SharkEX.png',
         },
       ];
 

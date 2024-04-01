@@ -60,7 +60,7 @@ const CreateTicket = ({setTicket})=>{
 
     const createTicket = async (newTicket)=>{
         try{
-            let response = await fetch('/api/ticket',{
+            let response = await fetch('https://cz-server-rungruch.azurewebsites.net/api/ticket',{
                 method: "POST",
                 body : JSON.stringify(newTicket),
                 headers: new Headers({ 'Content-Type': 'application/json' })
@@ -85,7 +85,7 @@ const CreateTicket = ({setTicket})=>{
 
     const genTicketid = async()=>
     {
-        let res = await fetch('/api/ticket')
+        let res = await fetch('https://cz-server-rungruch.azurewebsites.net/api/ticket')
         if(!res.ok)
         {
             throw Error("cannot fetch ticket")

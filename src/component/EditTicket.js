@@ -65,7 +65,7 @@ const EditTicket =({ticketEdit, setTicketEdit, ticket, setTicket , setStage})=>{
     
     const updatetoDB = async(data)=>{
         try{
-            let response = await fetch('/api/ticket/'+ticketEdit.Ticketid,{
+            let response = await fetch('https://cz-server-rungruch.azurewebsites.net/api/ticket/'+ticketEdit.Ticketid,{
                 method: "PUT",
                 body : JSON.stringify(data),
                 headers: new Headers({ 'Content-Type': 'application/json' })

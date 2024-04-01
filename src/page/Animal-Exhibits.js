@@ -23,13 +23,13 @@ export {dataContext};
 export default About;  
 
 export const zoneanimalLoader = async()=>{
-    const zones = await fetch('/api/zones')
+    const zones = await fetch('https://cz-server-rungruch.azurewebsites.net/api/zones')
     if(!zones.ok)
     {
         throw Error("could not fetch the zones.")
     }
     const zonesData = await zones.json()
-    const animals = await fetch('/api/animals')
+    const animals = await fetch('https://cz-server-rungruch.azurewebsites.net/api/animals')
     if (!animals.ok)
     {
         throw Error('could not fetch the animals data.')

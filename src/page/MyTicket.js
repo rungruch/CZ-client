@@ -12,7 +12,7 @@ const TicketPage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch("/api/transactions/" + auth.user?.id);
+        const res = await fetch("https://cz-server-rungruch.azurewebsites.net/api/transactions/" + auth.user?.id);
         if (!res.ok) {
           throw Error("Could not fetch the products");
         }

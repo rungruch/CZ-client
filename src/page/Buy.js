@@ -27,7 +27,7 @@ const AquariumTicketPurchase = () => {
     const navigate = useNavigate();
     async function createTransaction(newTransaction) {
       try {
-         await fetch('/api/transactions/', {
+         await fetch('https://cz-server-rungruch.azurewebsites.net/api/transactions/', {
           method: 'POST',
           body: JSON.stringify(newTransaction),
           headers: new Headers({ 'Content-Type': 'application/json' }),
@@ -46,7 +46,7 @@ const AquariumTicketPurchase = () => {
 
     async function updateTicket(newTicket, id) {
       try {
-         await fetch('/api/ticket/'+id , {
+         await fetch('https://cz-server-rungruch.azurewebsites.net/api/ticket/'+id , {
           method: 'PUT',
           body: JSON.stringify(newTicket),
           headers: new Headers({ 'Content-Type': 'application/json' }),

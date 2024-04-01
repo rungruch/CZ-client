@@ -108,8 +108,8 @@ const Section = ({currentZone})=>{
             <div className="section-top">
                 <h1 >section</h1>
                 <div className="sector-button">
-                    <button onClick={()=>{handleLeftSectionChange()}}><img src="/img/assets|main|back-arrow.png" alt="" draggable="false" className="btnL"/></button>
-                    <button onClick={()=>{handleRightSectionChange()}}><img src="/img/assets|main|forward-arrow.png" alt="" draggable="false" className="btnR"/></button>
+                    <button onClick={()=>{handleLeftSectionChange()}}><img src="https://cz-server-rungruch.azurewebsites.net/img/assets|main|back-arrow.png" alt="" draggable="false" className="btnL"/></button>
+                    <button onClick={()=>{handleRightSectionChange()}}><img src="https://cz-server-rungruch.azurewebsites.net/img/assets|main|forward-arrow.png" alt="" draggable="false" className="btnR"/></button>
                 </div>
             </div>                    
             <div className="section-details">
