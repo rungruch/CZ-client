@@ -26,10 +26,11 @@ const customStyles = {
 };
 Modal.setAppElement("#root");
 
-const RequireAuth = () => {
+const RequireAuth = ({allowedRoles}) => {
   const auth = useAuth();
   const location = useLocation();
-  console.log("*********require auth", auth.user);
+  const roles = auth.user?.roles;
+  // console.log("*********require auth", auth.user);
 
   const [isLogin, setIsLogin] = useState(true);
   const [modalIsOpen, setIsOpen] = useState(true);
@@ -64,6 +65,11 @@ const RequireAuth = () => {
       </Modal>
     );
   }
-  return <Outlet />;
+  const hasRequiredRole = allowedRoles.find(role=>role===roles);
+  if(hasRequiredRole){
+    return <Outlet />
+  }
+  else return(<h1>you don't have permission</h1>)
+  // return <Outlet />;
 };
 export default RequireAuth;

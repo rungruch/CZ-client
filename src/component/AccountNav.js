@@ -1,11 +1,11 @@
 import { NavLink} from 'react-router-dom'
 //import './navbar.css'
 import './account.css'
-import { useAuth } from "../utils/AuthProvider";
+// import { useAuth } from "../utils/AuthProvider";
 
 
 const Navbar = () => {
-  let auth = useAuth();
+  // let auth = useAuth();
   // console.log("/account/myticket/"+auth.user?.id);
   return (
     <>
@@ -15,7 +15,7 @@ const Navbar = () => {
         <div className="nav-elements">
           <ul>
             <li>
-              <NavLink to="/account/personalinfo">Personal Info</NavLink>
+              <NavLink to="/account/personalinfo">Edit Profile</NavLink>
             </li>
             <li>
               <NavLink to="/account/changepassword">Change Password</NavLink>
@@ -24,7 +24,7 @@ const Navbar = () => {
               <NavLink to="/account/purchasehistory">Purchase History</NavLink>
             </li>
             <li>
-              <NavLink to={"/account/myticket/"+auth.user?.id}>My Ticket</NavLink>
+              <NavLink to={"/account/myticket/"}>My Ticket</NavLink>
             </li>
           </ul>
         </div>

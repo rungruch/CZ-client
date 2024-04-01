@@ -1,73 +1,86 @@
-import { useState , useEffect } from "react";
+import { useState , useEffect , useContext } from "react";
 
 
-const Section = ({zones , index ,currentZone})=>{
+const Section = ({currentZone})=>{
 
     const [section , setSection] = useState([]);
     const [sectionIndex , setSectionIndex] = useState(0);
     const [currentSection , setCurrentSection] = useState([]);
-    const [sectionsZone , setSectionZones] = useState([]);
+    
 
     useEffect(()=>{
-
-        const loadData = async () =>{
-            const sec= await loadSection();
-            const combine = zones.map(zone=>{
-                let match = sec.find(secc=>secc.zoneID===zone.id)
-                return match? Object.assign(zone,match):zone;
-            })
-            if(combine.length>0)
-            {
-               setSection(combine)
-               
-            }
-        }
-        loadData();
-
-    },[zones])
-
-
-    useEffect(()=>{
-        if(section.length>0){            
-            setSectionZones(section[0].Section);
-            setCurrentSection(section[0].Section[0])
-        }
-    },[section])
-
-    useEffect(()=>{
-        if (sectionsZone.length>0)
-        {
-            if(sectionIndex>sectionsZone.length-1)
-            {
-                setCurrentSection(sectionsZone[0])
-                setSectionIndex(0)
-            }
-            else{
-                setCurrentSection(sectionsZone[sectionIndex]);
-            }
-        }
-        
-    },[sectionIndex,sectionsZone])
-
-    useEffect(()=>{
-        if(section.length>0)
-        {
-            const result = section.find(zone => zone.id === currentZone.id)
-            setSectionZones(result.Section)
-            
-        }
-    },[currentZone,section])
-
-    useEffect(()=>{
+        setSection(currentZone.Section)
         setSectionIndex(0)
+        setCurrentSection(currentZone.Section[0])
+        // console.log(currentZone);
+    },[currentZone])
 
-    },[sectionsZone])
+    useEffect(()=>{
+        setCurrentSection(currentZone.Section[sectionIndex])
+    },[sectionIndex])
+
+
+
+    // useEffect(()=>{
+
+    //     const loadData = async () =>{
+    //         const sec= await loadSection();
+    //         const combine = zones.map(zone=>{
+    //             let match = sec.find(secc=>secc.zoneID===zone.id)
+    //             return match? Object.assign(zone,match):zone;
+    //         })
+    //         if(combine.length>0)
+    //         {
+    //            setSection(combine)
+               
+    //         }
+    //     }
+    //     loadData();
+
+    // },[zones])
+
+
+    // useEffect(()=>{
+    //     if(section.length>0){            
+    //         setSectionZones(section[0].Section);
+    //         setCurrentSection(section[0].Section[0])
+    //     }
+    // },[section])
+
+    // useEffect(()=>{
+    //     if (sectionsZone.length>0)
+    //     {
+    //         if(sectionIndex>sectionsZone.length-1)
+    //         {
+    //             setCurrentSection(sectionsZone[0])
+    //             setSectionIndex(0)
+    //         }
+    //         else{
+    //             setCurrentSection(sectionsZone[sectionIndex]);
+    //         }
+    //     }
+        
+    // },[sectionIndex,sectionsZone])
+
+    // useEffect(()=>{
+    //     if(section.length>0)
+    //     {
+    //         const result = section.find(zone => zone.id === currentZone.id)
+    //         setSectionZones(result.Section)
+            
+    //     }
+    // },[currentZone,section])
+
+    // useEffect(()=>{
+    //     setSectionIndex(0)
+
+    // },[sectionsZone])
 
     
 
 
     const handleRightSectionChange = ()=>{
-            if(sectionIndex + 1 >= section[index].Section.length)
+            if(sectionIndex + 1 >= currentZone.Section.length)
             {
                 setSectionIndex(0);
             }
@@ -82,7 +95,7 @@ const Section = ({zones , index ,currentZone})=>{
 
         if(sectionIndex<=0)
         {
-            setSectionIndex(section[index].Section.length-1)
+            setSectionIndex(currentZone.Section.length-1)
         }
         else
         {
@@ -116,13 +129,13 @@ const Section = ({zones , index ,currentZone})=>{
 export default Section;
 
 
-const loadSection = async () => {
-    const res = await fetch('/api/sections');
-    if (!res.ok)
-    {
-        throw Error("Can't fetch section.");
-    }
-    else{
-        return res.json()
-    }
-}
+// const loadSection = async () => {
+//     const res = await fetch('/api/sections');
+//     if (!res.ok)
+//     {
+//         throw Error("Can't fetch section.");
+//     }
+//     else{
+//         return res.json()
+//     }
+// }

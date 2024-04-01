@@ -1,0 +1,92 @@
+.list-item{
+  margin-bottom: 5rem;
+}
+
+.list-contentPH {
+  display: block;
+  align-items: center;
+  min-width: 550px;
+  justify-content: space-between;
+  border: 2px solid;
+  border-radius: 10px;
+  padding: 1.2rem;
+  background-color: #fff;
+  margin-top: 2rem;
+}
+
+.list-content {
+  display: flex;
+  align-items: center;
+  min-width: 550px;
+  justify-content: space-between;
+  border: 2px solid;
+  border-radius: 10px;
+  padding: 1.5rem;
+  background-color: #fff;
+  margin-top: 2rem;
+}
+
+.ticket-id h1,
+.quantity h2 {
+  margin: 0;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.2rem;
+}
+.Summarayinfo{
+  display: flex;
+  justify-content: flex-end;
+}
+.Summarayinfo h3{
+  margin :0;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.2rem;
+  padding-left: 0;
+}
+
+.pagination li {
+  list-style: none;
+  margin: 0 0.5rem;
+  cursor: pointer;
+}
+
+.pagination li.active {
+  font-weight: bold;
+  text-decoration: underline;
+  background-color: #f0f0f0 !important;
+  border-radius: 0.5rem;
+}
+
+
+
+@media (max-width: 750px) {
+  .list-content {
+    flex-direction: column;
+    min-width: auto;
+    padding: 1rem;
+    width: 250px;
+    height: 200px;
+  }
+
+  .list-contentPH {
+    flex-direction: column;
+    min-width: auto;
+    padding: 1rem;
+    width: 250px;
+    height: 200px;
+  }
+
+
+}

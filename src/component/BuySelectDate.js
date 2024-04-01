@@ -4,10 +4,9 @@ import { DatePicker,StaticDatePicker } from '@mui/x-date-pickers';
 
 import moment from 'moment';
 
-const BuySelectDate = ({ selectedDate, setSelectedDate,intensive,setIntensive,setStep,step }) => {
+const BuySelectDate = ({ selectedDate, setSelectedDate,intensive,setIntensive,setStep,step,setselectFamTicket,setselectIndTicket }) => {
 
     const handleDateSelection = (event) => {
-
         let formattedDate = moment(event.toString()).format('YYYY-MM-DD');
         // console.log(formattedDate);
         setSelectedDate(event);
@@ -17,7 +16,14 @@ const BuySelectDate = ({ selectedDate, setSelectedDate,intensive,setIntensive,se
     }else{
         setIntensive('Normal');
     }
-  };    
+  };  
+
+  const handleonclick = (event) => {
+    setStep(2);
+    setselectFamTicket([]);
+    setselectIndTicket([]);
+  };
+    
     return (
        <>
             <div className='BuyContentMain'>
@@ -43,7 +49,7 @@ const BuySelectDate = ({ selectedDate, setSelectedDate,intensive,setIntensive,se
                     {selectedDate && <h4>You Picked: {moment(selectedDate.toString()).format("LL")}</h4>}
                     {selectedDate && <p>{"We expect " + intensive +" attendance on this date."}</p>}
                     {selectedDate &&<p>Open 9AM to 5AM </p>}<br/>
-                    {selectedDate && <button onClick={() => setStep(2)}>{"Select "+moment(selectedDate.toString()).format("LL") }</button>}
+                    {selectedDate && <button onClick={handleonclick}>{"Select "+moment(selectedDate.toString()).format("LL") }</button>}
                 </div>
                 </div>
               </div>

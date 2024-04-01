@@ -11,8 +11,8 @@
     background-color: #B4A30A;
     padding-left: 15px;
     padding-right: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 11px;
+    padding-bottom: 11px;
 }
 .mini-navbar-buytickets a{
     font-weight: 600 !important;
@@ -153,6 +153,10 @@
   font-weight: 200 !important;
 }
 
+.morenavmob{
+  display: none;
+}
+
 
 @media (max-width: 900px) {
   .nav-elements ul li:not(:last-child) {
@@ -222,6 +226,11 @@
 
   .min-element{
     display: block;}
+
+    .morenavmob{
+      display: block;
+    }
+
 }
 
 
@@ -292,3 +301,5 @@ font-weight: 200;
   color: #ffffff;
   cursor: pointer;
 }
+
+

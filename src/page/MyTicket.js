@@ -1,15 +1,52 @@
-import { useLoaderData } from "react-router-dom";
-import "./MyTicket.css";
+import "../component/MyTicket.css";
+import { useAuth } from "../utils/AuthProvider";
+import { useEffect, useState } from "react";
+import Modal from "../component/TicketPassModal";
 
 const TicketPage = () => {
-  const products = useLoaderData();
-  const list = products.map((e) => (
-    <div className="list-content" key={e.Transactionid} to={e.Transactionid}>
+  const [products, setProducts] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(null); // state variable to store the selected product
+  const [isModalOpen, setIsModalOpen] = useState(false); // state variable to control the visibility of the modal window
+  let auth = useAuth();
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await fetch("/api/transactions/" + auth.user?.id);
+        if (!res.ok) {
+          throw Error("Could not fetch the products");
+        }
+        const data = await res.json();
+        setProducts(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchProducts();
+  }, [auth.user?.id]);
+
+  const handleProductClick = (product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
+
+  const today = new Date().toISOString().split('T')[0];
+
+  const list = products
+  .filter(e => e.VisitDate >= today)
+  .sort((a, b) => a.VisitDate.localeCompare(b.VisitDate)) // sort by VisitDate in ascending order
+  .map((e) => (
+    <div
+      className="list-content"
+      key={e.Transactionid}
+      to={e.Transactionid}
+      onClick={() => handleProductClick(e)}
+    >
       <div className="ticket-id" title={e.category}>
-        <h1>{e.Ticketid}</h1>
+        <h1>{e.TicketType}</h1>
         <div className="info">
-          <p>Booking Date: {e.VisitDate}</p>
-          <p>Transaction ID: {e.Transactionid}</p>
+          <p>Visit Date: {e.VisitDate}</p>
         </div>
       </div>
       <div className="quantity" title={e.category}>
@@ -18,36 +55,19 @@ const TicketPage = () => {
     </div>
   ));
 
+
   return (
     <>
       {products.length ? (
-        <div className="list-item">{list}</div>
+        <div className="--item">{list}</div>
       ) : (
         "No Ticket available"
+      )}
+      {isModalOpen && ( // render the modal window component conditionally
+        <Modal product={selectedProduct} onClose={() => setIsModalOpen(false)} />
       )}
     </>
   );
 };
 
 export default TicketPage;
-
-export const TicketLoader = async ({ params }) => {
-  // const res = await getProducts();
-  const { id } = params;
-  try {
-    const res = await fetch("/api/transactions/" + id);
-    if (!res.ok) {
-      throw Error("Could not fetch the products");
-    }
-    return res.json();
-  } catch (error) {
-    console.log(error);
-    return [];
-  }
-  // const res = await fetch('/api/transactions/'+ id)
-  // if (!res.ok) {
-  //     return res.json(null);
-  // 	throw Error('Could not fetch the products')
-  // }
-  // return res.json()
-};

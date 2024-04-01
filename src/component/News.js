@@ -1,4 +1,5 @@
 import { useState , useEffect} from 'react';
+import moment from 'moment';
 
 const News = () => {
 
@@ -44,7 +45,7 @@ const News = () => {
       <div className='news'>
       <div className='currentime'>
               <p>TODAY EVENTS</p>
-              <h2>MARCH 14, 2023</h2>
+              <h2>{moment().format("MMM Do YYYY")}</h2>
             </div>
         <div className='news-content'>
           <div className='newslist'>

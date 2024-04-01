@@ -19,12 +19,15 @@ const AquariumTicketPurchase = () => {
     const [Family, setFamily] = useState(0);
     const [IndividualPrice, setIndividualPrice] = useState(0);
     const [FamilyPrice, setFamilyPrice] = useState(0);
+    const [selectIndTicket, setselectIndTicket] = useState([]);
+    const [selectFamTicket, setselectFamTicket] = useState([]);
+
     let auth = useAuth();
    
     const navigate = useNavigate();
     async function createTransaction(newTransaction) {
       try {
-        let response = await fetch('/api/transactions/', {
+         await fetch('/api/transactions/', {
           method: 'POST',
           body: JSON.stringify(newTransaction),
           headers: new Headers({ 'Content-Type': 'application/json' }),
@@ -34,7 +37,26 @@ const AquariumTicketPurchase = () => {
           }
           return res.json()
         })
-        navigate('/account/myticket/'+auth.user?.id);
+        navigate('/account/myticket');
+      } catch (error) {
+        console.error('Error:', error)
+      }
+    }
+
+
+    async function updateTicket(newTicket, id) {
+      try {
+         await fetch('/api/ticket/'+id , {
+          method: 'PUT',
+          body: JSON.stringify(newTicket),
+          headers: new Headers({ 'Content-Type': 'application/json' }),
+        }).then((res) => {
+          if (!res.ok) {
+            throw Error({ error: `Could not add new product ${newTicket}` })
+          }
+          return res.json()
+        })
+        navigate('/account/myticket');
       } catch (error) {
         console.error('Error:', error)
       }
@@ -43,18 +65,51 @@ const AquariumTicketPurchase = () => {
   async function handleCheckout() {
     const genId = () => Math.random().toString(36).substring(2, 9)
 
-   let transaction = { 
-       Transactionid: genId(),
-       id: auth.user?.id,
-       Ticketid: "Individual",
-       quantity: Individual,
-       TotalPrice:(Individual*IndividualPrice),
-       VisitDate: moment(selectedDate.toString()).format("YY-MM-DD"),
-       Timestamp: moment(),
+    try {
+      if(Individual >0){
+        let upticket = { 
+          Ticketid: selectIndTicket.Ticketid,
+          Remaining: (selectIndTicket.Remaining)-Individual,
+       }
+        await updateTicket(upticket, selectIndTicket.Ticketid)
+      }
+
+      if(Family >0){
+        let upticket = { 
+          Ticketid: selectFamTicket.Ticketid,
+          Remaining: (selectFamTicket.Remaining)-Family,
+       }
+       await updateTicket(upticket, selectFamTicket.Ticketid)
+      }
+
     }
-    await createTransaction(transaction)
+    catch (error) {
+      console.error('Error:', error)
+      return;
+    }
 
-
+    if(Individual >0){
+        let transaction = { 
+            Transactionid: genId(),
+            email: auth.user?.email,
+            TicketType: "Individual",
+            quantity: Individual,
+            TotalPrice:(Individual*IndividualPrice),
+            VisitDate: moment(selectedDate.toString()).format("YYYY-MM-DD"),
+         }
+         await createTransaction(transaction)
+    }
+    if(Family >0){
+        let transaction = { 
+            Transactionid: genId(),
+            email: auth.user?.email,
+            TicketType: "Family",
+            quantity: Family,
+            TotalPrice:(Family*FamilyPrice),
+            VisitDate: moment(selectedDate.toString()).format("YYYY-MM-DD"),
+         }
+         await createTransaction(transaction)
+    }
   };
 
 
@@ -67,12 +122,12 @@ const AquariumTicketPurchase = () => {
           <div className="Buy-line" />
           <div className='BuyContent'>
             {step === 1 && (
-            <BuySelectDate selectedDate={selectedDate} setSelectedDate={setSelectedDate}  intensive={intensive} setIntensive={setIntensive} step={step} setStep={setStep}/>
+            <BuySelectDate selectedDate={selectedDate} setSelectedDate={setSelectedDate}  intensive={intensive} setIntensive={setIntensive} step={step} setStep={setStep} setselectIndTicket={setselectIndTicket} setselectFamTicket={setselectFamTicket}/>
             )}
             {step === 2 && (
              <BuySelectTicket BuySelectDate selectedDate={selectedDate} setSelectedDate={setSelectedDate}  intensive={intensive} setIntensive={setIntensive} step={step} setStep={setStep} 
              Individual={Individual} setIndividual={setIndividual} setIndividualPrice={setIndividualPrice} 
-             Family={Family} setFamily={setFamily} setFamilyPrice={setFamilyPrice} />
+             Family={Family} setFamily={setFamily} setFamilyPrice={setFamilyPrice} setselectIndTicket={setselectIndTicket} setselectFamTicket={setselectFamTicket} selectIndTicket={selectIndTicket} selectFamTicket={selectFamTicket}/>
             )}
             {step === 3 && (
                 <div  className='BuyContentMain'>
@@ -95,6 +150,10 @@ const AquariumTicketPurchase = () => {
                 <p className='TotalPrice'>{(FamilyPrice * Family) +" THB"}</p>
                 </div>
                 <div className="Buy-ticket-line" />
+                <div className="Buy-ticket-Option">
+                <h2>Total</h2>
+                <h2 >{((FamilyPrice * Family)+(IndividualPrice*Individual)) +" THB"}</h2>
+                </div>
                 <button className='buybtn' onClick={handleCheckout}>Checkout</button>
               </div>
             )}

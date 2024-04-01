@@ -1,28 +1,16 @@
-import  { useState , useEffect , useRef } from "react";
+import  { useState , useEffect , useRef, useContext } from "react";
 import Section from "./sectoin";
 import './explore.css'
-
+import { dataContext } from "../page/Explore";
 
 const Explorecom =()=>
 {   
     
-    const [zones , setzones] = useState([]);
-    const [index , setIndex] = useState(0);
-    const [currentZone , setCurrentZone] = useState([]);
+    const [zones , setzones] = useState(useContext(dataContext));
+    const [zoneIndex , setIndex] = useState(0);
+    const [currentZone , setCurrentZone] = useState(zones[0]);
 
-    useEffect(()=>{
-
-        async function fetchdata(){
-            const zone = await zoneLoader();
-            //console.log(zone)
-            setzones(zone);
-            setCurrentZone(zone[0])
-        }
-
-        fetchdata();
-
-    }, [])
-
+    
      const [windowWidth, setWindowWidth] = useState(window.innerWidth);
    
    
@@ -72,8 +60,8 @@ const Explorecom =()=>
     
    
     
-        const list = zones.map((e)=>(
-        <div key={e.id} className={e.id-1===index?"card-selected":"card"} onClick={()=>{setIndex(e.id-1); setCurrentZone(e)}}>
+        const list = zones.map((e,index)=>(
+        <div key={e.id} className={index===zoneIndex?"card-selected":"card"} onClick={()=>{setIndex(index); setCurrentZone(e)}}>
             <img src = {e.imgURL} alt="" draggable="false"/>
             <h1>{e.name}</h1>
             
@@ -108,7 +96,7 @@ const Explorecom =()=>
                         
                 
             </div>
-            <Section zones={zones} index={index} currentZone={currentZone}/>
+            <Section currentZone={currentZone}/>
             
         </>
         )
@@ -120,13 +108,13 @@ export default Explorecom;
 
 
 
-const zoneLoader = async ()=> {
-    const res = await fetch('/api/zones')
-    if(!res.ok)
-    {
-        throw Error("could not fetch the zones.")
-    }
-    else
-    return res.json();
-}
+// const zoneLoader = async ()=> {
+//     const res = await fetch('/api/zones')
+//     if(!res.ok)
+//     {
+//         throw Error("could not fetch the zones.")
+//     }
+//     else
+//     return res.json();
+// }
 

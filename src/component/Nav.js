@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { ReactComponent as Hamburger } from "../assets/icons/burger.svg";
 //import { ReactComponent as Brand } from '../../assets/icons/logo.svg'
 import "./navbar.css";
@@ -19,6 +19,7 @@ const customStyles = {
     right: 0,
     bottom: 0,
     backgroundColor: "rgba(0, 0, 0, 0.75)",
+    zIndex: 1,
   },
   content: {
     top: "50%",
@@ -42,7 +43,7 @@ const Navbar = () => {
   // Modal
   const [isLogin, setIsLogin] = useState(true);
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
   function openModal() {
     setIsOpen(true);
   }
@@ -52,7 +53,7 @@ const Navbar = () => {
 
   // auth
   const auth = useAuth();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <>
@@ -81,7 +82,7 @@ const Navbar = () => {
                   // >
                   //   Sign Out
                   // </button>
-                  <LoginMenu />
+                  <LoginMenu/>
                 ) : (
                   <button className="loginbtn" onClick={openModal}>Login</button>
                 )}
@@ -119,6 +120,14 @@ const Navbar = () => {
               <li>
                 <NavLink to="/Animal-Exhibits">Animal & Exhibits</NavLink>
               </li>
+              {
+                auth.user.roles=="Admin"&&
+                (
+                <li>
+                  <NavLink to="/addticket">Manage Ticket</NavLink>
+                </li>
+                )
+              }
               {/* <li>
                 <NavLink to="/News">News</NavLink>
               </li>

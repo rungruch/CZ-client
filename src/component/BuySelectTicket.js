@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 
 const BuySelectTicket = ({ selectedDate, setSelectedDate,intensive,setIntensive,setStep,step,selectedTickets,setTotalPrice,
-    Individual,setIndividual, Family,setFamily,setIndividualPrice,setFamilyPrice
+    Individual,setIndividual,setIndividualPrice,setFamilyPrice, Family,setFamily,selectIndTicket, selectFamTicket,setselectIndTicket,setselectFamTicket
 }) => {
     
     // const [IndividualQuan, setIndividualQuan] = useState(0)
@@ -41,12 +41,16 @@ const BuySelectTicket = ({ selectedDate, setSelectedDate,intensive,setIntensive,
         }
       };
 
-      const [selectIndTicket, setselectIndTicket] = useState([]);
-     const [selectFamTicket, setselectFamTicket] = useState([]);
+
+
       useEffect(() => {
         const fetchData = async () => {
-          const Inddata = await TicketLoader("Individual","2023-04-23");
-          const Famdata = await TicketLoader("Family","2023-04-23");
+          let formattedDate = moment(selectedDate.toString()).format('YYYY-MM-DD');
+          let Inddata = await TicketLoader("Individual",formattedDate);
+          let Famdata = await TicketLoader("Family",formattedDate);
+
+          // const Inddata = await TicketLoader("Individual","2023-04-23");
+          // const Famdata = await TicketLoader("Family","2023-04-23");
           setselectIndTicket(Inddata[0]);
           setselectFamTicket(Famdata[0]);
         };
@@ -73,8 +77,13 @@ const BuySelectTicket = ({ selectedDate, setSelectedDate,intensive,setIntensive,
                 ) : (
                     <p className='outOfticket'>Running out of tickets!</p>
                 )}
-                <p>{selectIndTicket.Price+" THB"}</p>
-                <p className='TotalPrice'>{(selectIndTicket.Price * Individual) +" THB"}</p>
+                <p>{selectIndTicket.Remaining > 0 ? (
+                      selectIndTicket.Price+" THB"
+                ) : (null)}
+                  </p>
+                <p className='TotalPrice'>{selectIndTicket.Remaining > 0 ? (selectIndTicket.Price * Individual +" THB")
+                : (null)
+              }</p>
                 </div>
              
     
@@ -91,9 +100,15 @@ const BuySelectTicket = ({ selectedDate, setSelectedDate,intensive,setIntensive,
                     <p className='outOfticket'>Running out of tickets!</p>
 
                 )}
-                <p>{selectFamTicket.Price +" THB"}</p>
-                <p className='TotalPrice'>{(selectFamTicket.Price * Family) +" THB"}</p>
+                <p>{selectFamTicket.Remaining > 0 ? (
+                      selectFamTicket.Price+" THB"
+                ) : (null)}
+                  </p>
+                  <p className='TotalPrice'>{selectFamTicket.Remaining > 0 ? (selectFamTicket.Price * Family +" THB")
+                : (null)
+              }</p>
                 </div>
+                <h6>(4 person)</h6>
                 <div className="Buy-ticket-line" />
                 <button className={`${Family> 0 || Individual>0 ? "buybtn" : "buybtnblock"}`}
                  onClick={handleCheckout}>Continue</button>
